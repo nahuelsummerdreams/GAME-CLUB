@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import type { CharacterId } from "@/types/player";
 
 export type ZoneId =
   | "santas-workshop"
@@ -55,6 +56,10 @@ export interface GameManifest {
   category: GameCategory;
   music: MusicTheme;
   tagline: string;
+  /** Character who greets the player in the tutorial. */
+  hero: CharacterId;
+  /** 2–3 very short tutorial lines. */
+  howTo: string[];
   /** Lazy loader — keeps each game (and Phaser) out of the main bundle. */
   load: () => Promise<{ default: ComponentType<GameProps> }>;
 }
