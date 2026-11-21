@@ -67,3 +67,7 @@ h1, h2, h3, .font-display { font-family: var(--font-display); }
 .anim-gem-in { animation: gem-in .34s cubic-bezier(.3,.8,.4,1) both; }
 .anim-pop-out { animation: pop-out .24s ease-out both; }
 .anim-hint { animation: hint .7s ease-in-out infinite; }
+
+/* Conveyor: slides back and forth but always keeps the belt reachable (container-query units). */
+@keyframes belt { from { translate: 0 } to { translate: min(0px, calc(100cqw - 100%)) } }
+.anim-belt { animation: belt 14s ease-in-out infinite alternate; }
