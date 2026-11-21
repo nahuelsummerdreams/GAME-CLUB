@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@import "@fontsource-variable/fredoka";
+@import "@fontsource-variable/nunito-sans";
+
+@theme {
+  --color-red: #d94a4a;
+  --color-red-deep: #a93434;
+  --color-pine: #174b3c;
+  --color-evergreen: #28664d;
+  --color-snow: #fffdf7;
+  --color-cream: #f8f0e2;
+  --color-gold: #f4c95d;
+  --color-gold-deep: #c99a2e;
+  --color-ice: #b9ddec;
+  --color-candy: #f2a5b5;
+  --font-display: "Fredoka Variable", "Nunito Sans Variable", system-ui, sans-serif;
+  --font-body: "Nunito Sans Variable", system-ui, sans-serif;
+  --radius-card: 28px;
+  --shadow-soft: 0 10px 30px -10px rgb(23 75 60 / 0.35);
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-pine);
+  color: var(--color-pine);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  user-select: none;
+}
+h1, h2, h3, .font-display { font-family: var(--font-display); }
+
+/* Game surfaces must own touch gestures. */
+.touch-game { touch-action: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
