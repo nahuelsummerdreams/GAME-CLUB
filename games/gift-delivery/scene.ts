@@ -16,12 +16,6 @@ type Sprite = PhaserNS.GameObjects.Image;
 interface House { s: Sprite; done: boolean; gift?: Sprite }
 interface Obs { s: Sprite; kind: "cloud" | "owl"; phase: number }
 
-export async function loadImages(textures: Record<string, { url: string }>): Promise<Record<string, HTMLImageElement>> {
-  const out: Record<string, HTMLImageElement> = {};
-  await Promise.all(Object.entries(textures).map(([k, t]) => new Promise<void>((res, rej) => { const i = new Image(); i.onload = () => { out[k] = i; res(); }; i.onerror = () => rej(new Error(`texture ${k}`)); i.src = t.url; })));
-  return out;
-}
-
 export function createDelivery(Phaser: typeof PhaserNS, parent: HTMLElement, o: Opts): PhaserNS.Game {
   const R = o.route;
   class Play extends Phaser.Scene {

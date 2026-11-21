@@ -6,7 +6,8 @@ import { IconLock, IconStar } from "@/components/game-ui/icons";
 import { PhaserHost } from "@/components/game-ui/PhaserHost";
 import { readJSON, writeJSON } from "@/lib/storage";
 import { TEXTURES } from "./art";
-import { ROUTES, createDelivery, loadImages, type End, type Hud } from "./scene";
+import { loadImages } from "@/lib/game-engine/svgTexture";
+import { ROUTES, createDelivery, type End, type Hud } from "./scene";
 
 export default function Game({ paused, services, onComplete }: GameProps) {
   const [route, setRoute] = useState<number | null>(null);
