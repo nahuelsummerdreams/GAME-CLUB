@@ -78,7 +78,7 @@ export function Landing() {
         </Link>
         <nav aria-label="Worlds" className="mt-2 flex max-w-3xl flex-wrap justify-center gap-2">
           {ZONES.map((z) => (
-            <Link key={z.id} href={`/world?zone=${z.id}`} className="font-display rounded-full bg-snow/90 px-4 py-2 text-sm font-semibold text-pine shadow-soft">{z.name}</Link>
+            <Link key={z.id} href={`/world?zone=${z.id}`} className="font-display inline-flex min-h-11 items-center rounded-full bg-snow/90 px-4 text-sm font-semibold text-pine shadow-soft">{z.name}</Link>
           ))}
         </nav>
         <div className="mt-3 flex items-end justify-center gap-1 sm:gap-4" aria-hidden>

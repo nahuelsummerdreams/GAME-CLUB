@@ -54,7 +54,7 @@ export default function ProfilePage() {
           <ul className="space-y-2">
             {GAMES.map((g) => (
               <li key={g.slug} className="flex items-center gap-2 rounded-2xl bg-cream p-2 pl-4">
-                <Link href={`/games/${g.slug}`} className="font-display min-w-0 flex-1 truncate text-lg font-semibold">{g.title}</Link>
+                <Link href={`/games/${g.slug}`} className="font-display flex min-h-12 min-w-0 flex-1 items-center truncate text-lg font-semibold">{g.title}</Link>
                 <span className="flex">{[1, 2, 3].map((n) => <IconStar key={n} className={`text-xl ${n <= (progress.bestStars[g.slug] ?? 0) ? "text-gold" : "text-ice"}`} />)}</span>
                 <button type="button" aria-label={`Favorite ${g.title}`} aria-pressed={progress.favorites.includes(g.slug)} onClick={() => fav(g.slug)} className={`grid size-12 place-items-center rounded-full text-2xl ${progress.favorites.includes(g.slug) ? "text-red" : "text-ice"}`}>♥</button>
               </li>

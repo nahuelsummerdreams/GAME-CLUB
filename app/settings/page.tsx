@@ -7,6 +7,7 @@ import { audio } from "@/lib/audio";
 import { setProfile, setProgress, useAudioSettings, DEFAULT_PROFILE } from "@/lib/state/store";
 import { EMPTY_PROGRESS } from "@/lib/progression";
 import { removeKey } from "@/lib/storage";
+import { InstallCard } from "@/components/navigation/InstallCard";
 
 function Row({ label, on, onToggle, vol, onVol }: { label: string; on: boolean; onToggle: () => void; vol: number; onVol: (v: number) => void }) {
   return (
@@ -31,6 +32,7 @@ export default function SettingsPage() {
       <div className="space-y-4">
         <Row label="Music" on={s.musicOn} onToggle={() => { audio.unlock(); audio.update({ musicOn: !s.musicOn }); }} vol={s.musicVolume} onVol={(v) => { audio.unlock(); audio.update({ musicVolume: v }); }} />
         <Row label="Sounds" on={s.sfxOn} onToggle={() => { audio.unlock(); audio.update({ sfxOn: !s.sfxOn }); }} vol={s.sfxVolume} onVol={(v) => { audio.unlock(); audio.update({ sfxVolume: v }); }} />
+        <InstallCard />
         <section className="rounded-card bg-snow p-4 shadow-soft">
           <h2 className="font-display text-2xl font-semibold">For grown-ups</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-lg font-semibold">
@@ -46,7 +48,7 @@ export default function SettingsPage() {
             <div className="flex gap-2">
               <BigButton variant="red" className="flex-1" onClick={() => {
                 setProgress(EMPTY_PROGRESS); setProfile(DEFAULT_PROFILE);
-                ["tree", "snowman", "puzzle-done"].forEach(removeKey); setConfirm(false);
+                ["tree", "snowman", "puzzle-done", "match-level", "delivery-route", "bubble-level", "workshop-level"].forEach(removeKey); setConfirm(false);
               }}>YES, ERASE</BigButton>
               <BigButton variant="snow" className="flex-1" onClick={() => setConfirm(false)}>CANCEL</BigButton>
             </div>
