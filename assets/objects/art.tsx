@@ -44,3 +44,8 @@ export function Art({ id, color = P.red, className, title }: { id: ArtId; color?
     </svg>
   );
 }
+
+/** Bare shape (no <svg> wrapper) for composing inside other SVG scenes. viewBox 0 0 100 100. */
+export function ArtShape({ id, color = P.red }: { id: ArtId; color?: string }) {
+  return ART[id](color);
+}
