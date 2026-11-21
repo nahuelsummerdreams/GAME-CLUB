@@ -60,3 +60,10 @@ h1, h2, h3, .font-display { font-family: var(--font-display); }
 .anim-glow { animation: glow 1.6s ease-in-out infinite; }
 .anim-sheet { animation: sheet-up .35s cubic-bezier(.2,.9,.3,1) both; }
 .anim-smoke { animation: smoke 3s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+
+@keyframes gem-in { from { translate: 0 var(--dy, -200px); opacity: .2 } to { translate: 0 0; opacity: 1 } }
+@keyframes pop-out { 0% { transform: scale(1); opacity: 1 } 100% { transform: scale(1.5); opacity: 0 } }
+@keyframes hint { 0%,100% { transform: scale(1) } 50% { transform: scale(1.14) } }
+.anim-gem-in { animation: gem-in .34s cubic-bezier(.3,.8,.4,1) both; }
+.anim-pop-out { animation: pop-out .24s ease-out both; }
+.anim-hint { animation: hint .7s ease-in-out infinite; }
